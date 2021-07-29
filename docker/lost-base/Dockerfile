@@ -17,6 +17,12 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get update && apt-get install -y --no-install-recommends nodejs && rm -rf /var/lib/apt/lists/*
 ADD /docker/lost-base/environment.yml .
 RUN /bin/bash -c "source /opt/conda/bin/activate && conda env create -f environment.yml && conda clean -ay"
+RUN wget https://cmake.org/files/v3.20/cmake-3.20.5-linux-x86_64.sh -q -O /tmp/cmake-install.sh \
+      && chmod u+x /tmp/cmake-install.sh \
+      && mkdir /usr/bin/cmake \
+      && /tmp/cmake-install.sh --skip-license --prefix=/usr/bin/cmake \
+      && rm /tmp/cmake-install.sh
+ENV PATH="/usr/bin/cmake/bin:${PATH}"
 RUN /bin/bash -c "source /opt/conda/bin/activate lost && pip install --no-cache-dir python-igraph"
 RUN /bin/bash -c "source /opt/conda/bin/activate lost && conda install sphinx && conda clean -ay"
 RUN /bin/bash -c "source /opt/conda/bin/activate lost && pip install --no-cache-dir sphinx-rtd-theme"
