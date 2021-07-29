@@ -1,3 +1,24 @@
+# Build image
+
+## lost
+
+```bash
+./build-lost-script-dev.sh
+```
+
+puis push l'image quand elle est bonne 
+
+```bash
+docker push 3sdockerregistry.azurecr.io/lost:latest
+```
+
+
+
+---
+---
+---
+---
+
 [![pipeline status](https://gitlab.com/l3p-cv/lost/badges/master/pipeline.svg)](https://gitlab.com/l3p-cv/lost/pipelines)
 [![Documentation Status](https://readthedocs.org/projects/lost/badge/?version=latest)](https://lost.readthedocs.io/en/latest/?badge=latest)
 # LOST - Label Objects and Save Time
