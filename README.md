@@ -67,7 +67,7 @@ tested for Ubuntu):
     https://docs.docker.com/compose/install/
 3. Clone LOST:
     ```
-    git clone https://github.com/l3p-cv/lost.git
+    git clone -b 1.x https://github.com/l3p-cv/lost.git
     ```
 4. Run quick_setup script:
     ```
